@@ -5,10 +5,14 @@
 */
 
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <random>
 #include <ctime>
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp> 
+
+
 
 int randomInt(int min, int max)
 {
@@ -87,6 +91,7 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "SpongeShooter", sf::Style::Fullscreen);
     window.setFramerateLimit(60);
+    sf::Music music;
 
     sf::Texture bobTexture;
     if (!bobTexture.loadFromFile("assets/bob.png"))
@@ -112,6 +117,13 @@ int main()
         std::cerr << "bik.jpg not found" << std::endl;
         return 1;
     }
+    if (!music.openFromFile("assets/bikmus.wav")) 
+    {
+        std::cerr << "bikmus not found" << std::endl;
+        return 1;
+    }
+    music.setLoop(true);
+    music.play();
 
     Bob bob(bobTexture);
     bob.setPosition(window.getSize().x / 2, window.getSize().y / 2);
