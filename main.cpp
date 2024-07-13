@@ -85,7 +85,7 @@ public:
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(2000, 2000), "Burger Shooter");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SpongeShooter", sf::Style::Fullscreen);
     window.setFramerateLimit(60);
 
     sf::Texture bobTexture;
